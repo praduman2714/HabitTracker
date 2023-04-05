@@ -1,0 +1,9 @@
+body{
+    background-image: url(../images/signBackground.jpg) ;
+}
+
+.input-form{
+    display: flex;
+    justify-content: center;
+    margin-top: 10%;
+}

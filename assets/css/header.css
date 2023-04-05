@@ -1,0 +1,23 @@
+.navBar{
+    background-color: yellow;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.nameOfApp a{
+    font-size: 40px;
+    text-decoration: none;
+}
+
+.nameOfUser{
+    font-size: 30px;
+
+}
+
+.logOut a{
+    font-size: 30px;
+    margin-right: 10px;
+    text-decoration: none;
+    color: black;
+}
