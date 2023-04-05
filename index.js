@@ -3,7 +3,7 @@ const express = require('express'); // requeiring express
 const port = 8000; // assigning the port, for running in local computer
 const expressLayout=require('express-ejs-layouts');
 const app = express();
-
+const db = require('./config/moongoose'); // require the database
 
 // Setting up the view engine
 app.set('view engine','ejs');
