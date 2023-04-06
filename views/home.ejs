@@ -1,0 +1,33 @@
+<script src="https://kit.fontawesome.com/6866a8ccc0.js" crossorigin="anonymous"></script>
+<body>
+    
+    <div class="qutos">
+        <h1>“Successful people have successful habits”</h1>
+        <p>Start with a new habit today !</p>
+    </div>
+    
+    <div id="input">
+        <form action="/users/habit/createHabit" method="POST" class="input-form">
+            <input name="habit" type="text" placeholder="Enter your habit..." required>
+            <button type="submit" id="form-btn">+ Add Habits</button>
+        </form>
+    </div>
+    
+    <div id="symbol">
+        <i class="fas fa-check-circle"></i>
+       -Done&emsp;&emsp;
+       <i class="fas fa-times-circle"></i>
+       -Not Done&emsp;&emsp;
+       <i class="fas fa-minus-circle"></i>
+       -Unmarked&emsp;&emsp;
+       <button id="weekly-view__btn-2" onclick="showDailyData()">Daily</button>
+       <button id="weekly-view__btn" onclick="showWeeklyData()">weekly</button>
+     </div>
+
+</body>
+
+
+
+
+
+ <script src="/js/script.js"></script>
