@@ -81,3 +81,92 @@ body{
  #weekly-view__btn-2{
       border-radius:15px 0 0 15px;
  }
+
+.habit-list{
+    display: flex;
+    height: 55vh;
+    overflow-x: scroll;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 1rem;
+    align-items: center;
+    padding: 10px;
+}
+.habit-list::-webkit-scrollbar{
+    display: none;
+}
+.habit-list-item{
+    background-color: #02005f7a;
+   width: 650px;
+   height: 70px;
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   align-items: center;
+   padding: 0px 20px;
+   border-radius: 10px;
+   border: 1px solid #b0d635;
+   position: relative;
+}
+a{
+    text-decoration: none;
+}
+.habit-list-item-name{
+    color: whitesmoke;
+}
+.remove{
+    color: red;
+    margin-left: 5px;
+}
+.favorite{
+    color: rgb(255, 0, 170);
+}
+.fas{
+    font-size: 30px;
+}
+.fa-check-circle{
+    color: rgb(4, 252, 4);
+}
+.fa-times-circle{
+    color: rgb(201, 4, 4);
+}
+.fa-minus-circle{
+   color: gold; 
+}
+
+
+.weekly__container{
+    width: 650px;
+    border: 1px solid #4b3f8d;
+    border-radius:0px 0px 15px 15px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 4px;
+    justify-content:center;
+    align-items: center;
+    padding: 10px;
+}
+
+.weekly__date{
+    width: 80px;
+    height: 80px;
+    background-color: #2ba18375;
+    display: flex;
+    justify-content:center;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.weekly__date p{
+    font-size: 12px;
+    position: relative;
+    color:#fff;
+    top: -10px;
+}
+.with-weekly{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}

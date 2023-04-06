@@ -21,3 +21,19 @@
     text-decoration: none;
     color: black;
 }
+
+.noUser ul{
+    display: flex;
+    margin: 10px;
+    justify-content: space-between;
+}
+
+.noUser li{
+    list-style: none;
+    font-size: 25px;
+    padding-left: 10px;
+}
+
+.noUser li a{
+    text-decoration: none;
+}

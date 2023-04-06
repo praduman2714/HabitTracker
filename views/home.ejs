@@ -1,30 +1,70 @@
 <script src="https://kit.fontawesome.com/6866a8ccc0.js" crossorigin="anonymous"></script>
-<body>
-    
-    <div class="qutos">
-        <h1>“Successful people have successful habits”</h1>
-        <p>Start with a new habit today !</p>
-    </div>
-    
-    <div id="input">
-        <form action="/users/habit/createHabit" method="POST" class="input-form">
-            <input name="habit" type="text" placeholder="Enter your habit..." required>
-            <button type="submit" id="form-btn">+ Add Habits</button>
-        </form>
-    </div>
-    
-    <div id="symbol">
-        <i class="fas fa-check-circle"></i>
-       -Done&emsp;&emsp;
-       <i class="fas fa-times-circle"></i>
-       -Not Done&emsp;&emsp;
-       <i class="fas fa-minus-circle"></i>
-       -Unmarked&emsp;&emsp;
-       <button id="weekly-view__btn-2" onclick="showDailyData()">Daily</button>
-       <button id="weekly-view__btn" onclick="showWeeklyData()">weekly</button>
-     </div>
 
-</body>
+<% if(locals.user) {%>
+    <body>
+    
+        <div class="qutos">
+            <h1>“Successful people have successful habits”</h1>
+            <p>Start with a new habit today !</p>
+        </div>
+        
+        <div id="input">
+            <form action="/users/habit/createHabit" method="POST" class="input-form">
+                <input name="habit" type="text" placeholder="Enter your habit..." required>
+                <button type="submit" id="form-btn">+ Add Habits</button>
+            </form>
+        </div>
+        
+        <div id="symbol">
+            <i class="fas fa-check-circle"></i>
+           -Done&emsp;&emsp;
+           <i class="fas fa-times-circle"></i>
+           -Not Done&emsp;&emsp;
+           <i class="fas fa-minus-circle"></i>
+           -Unmarked&emsp;&emsp;
+           <button id="weekly-view__btn-2" onclick="showDailyData()">Daily</button>
+           <button id="weekly-view__btn" onclick="showWeeklyData()">weekly</button>
+        </div>
+
+
+         <div class="habit-display_width">
+            <ul class="habit-list">
+                <li class="with-weekly">
+                   <div class="habit-list-item">
+                    
+                        <a href="" class="status">
+                            <i class="fas fa-check-circle"></i>
+                            
+                        </a>
+
+                        <div class="habit-list-item-name"> Running </div>
+
+                        <div >
+                            <a href="" class="favorite">
+                                
+                                <i class="fa-solid fa-star"></i>
+                            </a>
+                            <a href="" class="remove">
+                                <i class="fa-solid fa-trash"></i>
+                            </a>
+                        </div>
+
+                   </div> 
+                   <div class="weekly__container">
+                        <div class="weekly__date">
+                            <p>06/04/2023</p>
+                            <a href="" class="status">
+                                <i class="fas fa-minus-circle"></i>
+                            </a>
+                        </div>
+                        
+                   </div>
+                </li>
+            </ul>
+         </div>
+    
+    </body>
+<%}%>
 
 
 
