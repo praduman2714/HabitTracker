@@ -1,9 +1,23 @@
 <link rel="stylesheet" href="/css/sign.css"> 
-<div class="input-form">
-    <form method="post" action="/users/sign-in" >
-        <input type="email" name="email" placeholder="Enter email" required><br>
-        <input type="password" name="password" placeholder="Enter password" required><br>
+<div class="outerform">
+    <div class="input-form">
+        <div><h1>Welcome</h1></div>
+        <div class="quotes">
+            <quotes>
+                Small process makes a person big
+            </quotes>
+        </div>
         
-        <button type="submit">Sign In</button>
-    </form>
+        <div class="formClass">
+            <form method="post" action="/users/sign-in" >
+                <input type="email" name="email" placeholder="Enter email" required><br>
+                <input type="password" name="password" placeholder="Enter password" required><br>
+                
+                <div class= 'buttons'>
+                    <div><button type="submit">Sign In</button></div>
+                    <div class="forgetPassword"><button type="submit"> ForgetPassword </button></div>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>

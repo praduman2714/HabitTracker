@@ -1,9 +1,48 @@
 body{
-    background-image: url(../images/signBackground.jpg) ;
+    background-image: url(../images/sign.jpg) ;
+}
+.outerform{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 10%;
+    margin-left: 37%;
+    background-color: #5b8d76;
+    height: 50vh;
+    width: 30%;
 }
 
 .input-form{
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    margin-top: 10%;
+    flex-wrap: wrap;
+    align-content: center;
+    margin-top: -40%;
+
 }
+.input-form div {
+    /* display: block; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.input-form .formClass{
+    position: relative;
+    bottom: -30%;
+    left: -10%;
+}
+/* .input-form div:nth-child(2n){
+    margin-left: 15vh;
+} */
+.formClass input{
+    width: 130%;
+    height: 40%;
+    border-radius: 30px;
+    margin: 4px;
+    padding-left: 20px ;
+    padding-right: 10px; 
+    border: none;
+    box-shadow: 0px 0px 0px 2px #ccc;
+}
+
