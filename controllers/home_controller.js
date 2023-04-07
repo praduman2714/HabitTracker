@@ -17,12 +17,18 @@ function getOneWeekDate(){
 
 
 module.exports.home = async function(req, res){
-    let habits = await Habit.find({}); 
-    return res.render('home', {
-        title : "Habit Tracker",
-        habits : habits,
-        weeklyDates : await getOneWeekDate()
-        // userName : "Praduman"
+    //console.log(req.user);
+    if(req.user){
+        let habits = await Habit.find({userRef: req.user._id}); 
+        return res.render('home', {
+            title : "Habit Tracker",
+            habits : habits,
+            weeklyDates : await getOneWeekDate()
+            // userName : "Praduman"
 
-    })
+        })
+    }else{
+        return res.redirect('/users/sign-in');
+    }
+    
 }

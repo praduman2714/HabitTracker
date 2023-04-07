@@ -4,6 +4,11 @@ const bodyParser = require('body-parser');
 const port = 8000; // assigning the port, for running in local computer
 const expressLayout=require('express-ejs-layouts');
 const app = express();
+// require the connect flash, to show the notification in flash msgs
+// they are used for showing action notifications
+const flash = require('connect-flash'); 
+const flashMiddleWare = require('./config/flashMiddleware');
+
 const db = require('./config/moongoose'); // require the database
 
 // used for session cookies
@@ -32,10 +37,14 @@ app.use(session({
     }
 }));
 
+// Using passport
 app.use(passport.initialize());
 app.use(passport.session());
-
 app.use(passport.setAuthenticatedUser);
+
+// Using Connect flash
+app.use(flash());
+app.use(flashMiddleWare.setFlash);
 
 app.use('/' , require('./routes/index')); // middleware for router
 

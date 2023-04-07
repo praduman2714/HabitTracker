@@ -16,4 +16,7 @@ router.post('/create-session', passport.authenticate(
 router.get('/sign-out' , userController.destroySession);
 router.use('/habit' , require('./habit'));
 
+router.use('/forgetPassword' , userController.forgetPasswordPage);
+router.use('/forgetPasswordPage', userController.forgetPasswordLink);
+
 module.exports = router;

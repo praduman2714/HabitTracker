@@ -1,8 +1,9 @@
 .navBar{
-    background-color: yellow;
+    background-color: rgba(23, 195, 106, 0.868);
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    /* position: relative; */
 }
 
 .nameOfApp a{

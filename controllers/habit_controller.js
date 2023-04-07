@@ -17,6 +17,7 @@ function getTodayDate(){
 // Habit is exclusive of user.
 module.exports.createHabit = async function(req, res){
     // console.log(req.body);
+    req.flash('success' , 'New Habit Created');
 
     try{
         let user = await User.findById(req.user._id).populate();
@@ -43,6 +44,8 @@ module.exports.createHabit = async function(req, res){
 // Status update for the habit, and the particular date also.
 
 module.exports.toogleStatus = async function(req, res){
+    //req.flash('success',  'Status of habit changed');
+    let message ; // This variable is there for displayin the action explictly 
     try{
         let id = req.query.id;
         let date = req.query.date;
@@ -60,14 +63,18 @@ module.exports.toogleStatus = async function(req, res){
                 if(item.date == date){
                     if(item.complete === 'yes'){
                         item.complete = 'no';
+                        message = 'Changed from done to undone'
                     }else if(item.complete === 'no'){
                         item.complete = 'none';
-                    }else{
+                        message = 'Not Done ---> Not Marked'
+                    }else if(item.complete === 'none'){
                         item.complete = 'yes';
+                        message = "You have completed your task"
                     }
                     found = true;
                 }
             });
+            req.flash('success' , message);
             // if the date is not found then we have to insert it into the dates array of habit,
             // this case will also not come , but still I took care of.
             if(!found) {
@@ -89,6 +96,8 @@ module.exports.toogleStatus = async function(req, res){
 
 // Togglin Favourites
 module.exports.toggleFavourite = async function(req, res){
+   // req.flash('success', 'yeah favorite habit');
+   let message;
     try{
         // find the habit with the help of id;
         let id = req.query.id;
@@ -101,10 +110,13 @@ module.exports.toggleFavourite = async function(req, res){
         // if habit is presnet , then we have to toogle its favourite which is presnet in the schema of habit.
         let favourite = habit.favorite;
         if(favourite == true){
+            message = "Habit removed from favourites"
             favourite = false;
         }else{
+            message = "Habit added to favourites"
             favourite = true;
         }
+        req.flash('success', message);
         habit.favorite = favourite;
 
         // After that we will save the chages made to the  habit 
@@ -116,14 +128,20 @@ module.exports.toggleFavourite = async function(req, res){
     }
 }
 
-module.exports.removeHabit = async function(req, res){
-    try{
-        let id = req.query._id;
-        await Habit.deleteOne(id);
+module.exports.removeHabit = async (req, res) => {
+    try {
+        req.flash('success', 'Deleted habit successfully!');
+        const id = req.query.id;
+        const userId = req.user._id;
+        await Habit.deleteOne({
+            _id: {
+                $in: [id]
+            },
+            userRef: userId
+        });
         return res.redirect('back');
-    }catch(err){
-        console.log("Error in deleiting the habit " + err);
+    } catch (err) {
+        console.log("Error in deleting record(s)!", err);
         return res.redirect('back');
     }
-
 }
