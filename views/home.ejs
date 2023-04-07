@@ -102,7 +102,14 @@
                                     %>
 
                                     <a href="/users/habit/toggleStatus/?id=<%= habit._id%>&date=<%=d%>" class="status">
-                                        <i class="fas fa-minus-circle"></i>
+                                        <!-- <i class="fas fa-minus-circle"></i> -->
+                                        <% if(find && stat==='yes'){ %>
+                                                <i class="fas fa-check-circle"></i>
+                                            <% } else if(find && stat==='no'){ %>
+                                                <i class="fas fa-times-circle"></i>
+                                            <% } else { %>
+                                                <i class="fas fa-minus-circle"></i>
+                                        <% } %>
                                     </a>
                                 </div>
                             <%}%>    

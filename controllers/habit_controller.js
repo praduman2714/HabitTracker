@@ -38,3 +38,44 @@ module.exports.createHabit = async function(req, res){
         console.log("Error in habit_controller** " + err);
     }
 } 
+
+
+// Status update for the habit, and the particular date also.
+
+module.exports.toogleStatus = async function(req, res){
+    try{
+        let id = req.query.id;
+        let date = req.query.date;
+
+        const habit = await Habit.findById(id);
+        if(!habit){
+            console.log("Habit is not present");
+            return res.redirect('back');
+        }else{
+            let dates = habit.dates;
+            let found = false;
+            dates.find((item, index) =>{
+                if(item.date == date){
+                    if(item.complete === 'yes'){
+                        item.complete = 'no';
+                    }else if(item.complete === 'no'){
+                        item.complete = 'none';
+                    }else{
+                        item.complete = 'yes';
+                    }
+                    found = true;
+                }
+            });
+            if(!found) {
+                dates.push({date : date, complete : 'yes'});
+            }
+            habit.dates = dates;
+            const updateHabit = await habit.save();
+            return res.redirect('back');
+        }
+    }catch(err){
+        console.log("Error in toggling Status of the habit, " + err);
+        return 
+    }
+
+}
