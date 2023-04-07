@@ -46,14 +46,16 @@ module.exports.toogleStatus = async function(req, res){
     try{
         let id = req.query.id;
         let date = req.query.date;
-
+        // find the habit, with help of id;
         const habit = await Habit.findById(id);
+        // if habit is not present then return, although this is very rear case. i.e bug in database.
         if(!habit){
             console.log("Habit is not present");
             return res.redirect('back');
         }else{
-            let dates = habit.dates;
+            let dates = habit.dates; // take out the date array of the habit.
             let found = false;
+            // changes the complete argument accodingly.
             dates.find((item, index) =>{
                 if(item.date == date){
                     if(item.complete === 'yes'){
@@ -66,16 +68,51 @@ module.exports.toogleStatus = async function(req, res){
                     found = true;
                 }
             });
+            // if the date is not found then we have to insert it into the dates array of habit,
+            // this case will also not come , but still I took care of.
             if(!found) {
                 dates.push({date : date, complete : 'yes'});
             }
+            // at last save the dates.
             habit.dates = dates;
             const updateHabit = await habit.save();
             return res.redirect('back');
         }
     }catch(err){
+        // If any error happesn then, this block will execute
+
         console.log("Error in toggling Status of the habit, " + err);
-        return 
+        return res.redirect('back');
     }
 
 }
+
+// Togglin Favourites
+module.exports.toggleFavourite = async function(req, res){
+    try{
+        // find the habit with the help of id;
+        let id = req.query.id;
+        let habit = await Habit.findById(id);
+        // if habit is not present, then we have to return back, although this will not occur
+        if(!habit){
+            console.log("Habit is not present");
+            return res.redirect('back');
+        }
+        // if habit is presnet , then we have to toogle its favourite which is presnet in the schema of habit.
+        let favourite = habit.favorite;
+        if(favourite == true){
+            favourite = false;
+        }else{
+            favourite = true;
+        }
+        habit.favorite = favourite;
+
+        // After that we will save the chages made to the  habit 
+        await habit.save();
+        return res.redirect('back');
+    }catch(err){
+        console.log("Error in favourites toggleing " + err);
+        return res.redirect('back');
+    }
+}
+
