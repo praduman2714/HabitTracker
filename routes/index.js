@@ -5,7 +5,8 @@ const homeController = require('../controllers/home_controller');
 console.log("Router is loded");
 
 
- router.get('/' , homeController.home);
+router.get('/' , homeController.home);
 router.use('/users' , require('./user'));
+// router.use('/habit' , require('./habit'));
 
 module.exports = router;

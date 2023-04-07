@@ -14,6 +14,6 @@ router.post('/create-session', passport.authenticate(
 ), userController.createSession); 
 // used for deleting the user
 router.get('/sign-out' , userController.destroySession);
-
+router.use('/habit' , require('./habit'));
 
 module.exports = router;
