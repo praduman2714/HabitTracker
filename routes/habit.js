@@ -8,6 +8,8 @@ router.post('/createHabit' , habitController.createHabit);
 router.get('/toggleStatus' , habitController.toogleStatus);
 // this router is for keeping the habit in favorites or not.
 router.get('/favorite' , habitController.toggleFavourite);
+// this router is for deleting the habits
+router.get('/remove' , habitController.removeHabit);
 
 
 module.exports = router; 

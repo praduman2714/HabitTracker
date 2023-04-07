@@ -116,3 +116,14 @@ module.exports.toggleFavourite = async function(req, res){
     }
 }
 
+module.exports.removeHabit = async function(req, res){
+    try{
+        let id = req.query._id;
+        await Habit.deleteOne(id);
+        return res.redirect('back');
+    }catch(err){
+        console.log("Error in deleiting the habit " + err);
+        return res.redirect('back');
+    }
+
+}
