@@ -1,7 +1,7 @@
 const http = require('http');
 const express = require('express'); // requeiring express
 const bodyParser = require('body-parser');
-const port = 8000; // assigning the port, for running in local computer
+const port = process.env.port || 8000; // assigning the port, for running in local computer
 const expressLayout=require('express-ejs-layouts');
 const app = express();
 // require the connect flash, to show the notification in flash msgs
