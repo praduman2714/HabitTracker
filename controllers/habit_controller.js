@@ -16,17 +16,17 @@ function getTodayDate(){
 // Since the habit is of user, so the router for this is made in the user.js 
 // Habit is exclusive of user.
 module.exports.createHabit = async function(req, res){
-    // console.log(req.body);
+     //console.log(req.user._id);
     
 
     try{
-        let user = await User.findById(req.user._id).populate();
+        //let user = await User.findById(req.user._id).populate();
         let habit = await Habit.findOne({content : req.body.habit, userRef : req.user._id}).populate();
 
         if(habit){
             //console.log("Habit exist");
             req.flash('error' , "Habit Exist");
-            return res.redirect('back');
+            return res.redirect('/');
         }else{
             let habit = await Habit.create({
                 content : req.body.habit,
@@ -34,7 +34,7 @@ module.exports.createHabit = async function(req, res){
                 dates : {date : await getTodayDate() , completed : "none"}
             });
             req.flash('success' , 'New Habit Created');
-            return res.redirect('back');
+            return res.redirect('/');
         }
 
     }catch(err){
@@ -56,7 +56,7 @@ module.exports.toogleStatus = async function(req, res){
         // if habit is not present then return, although this is very rear case. i.e bug in database.
         if(!habit){
             console.log("Habit is not present");
-            return res.redirect('back');
+            return res.redirect('/');
         }else{
             let dates = habit.dates; // take out the date array of the habit.
             let found = false;
@@ -85,13 +85,13 @@ module.exports.toogleStatus = async function(req, res){
             // at last save the dates.
             habit.dates = dates;
             const updateHabit = await habit.save();
-            return res.redirect('back');
+            return res.redirect('/');
         }
     }catch(err){
         // If any error happesn then, this block will execute
 
         console.log("Error in toggling Status of the habit, " + err);
-        return res.redirect('back');
+        return res.redirect('/');
     }
 
 }
@@ -107,7 +107,7 @@ module.exports.toggleFavourite = async function(req, res){
         // if habit is not present, then we have to return back, although this will not occur
         if(!habit){
             console.log("Habit is not present");
-            return res.redirect('back');
+            return res.redirect('/');
         }
         // if habit is presnet , then we have to toogle its favourite which is presnet in the schema of habit.
         let favourite = habit.favorite;
@@ -123,10 +123,10 @@ module.exports.toggleFavourite = async function(req, res){
 
         // After that we will save the chages made to the  habit 
         await habit.save();
-        return res.redirect('back');
+        return res.redirect('/');
     }catch(err){
         console.log("Error in favourites toggleing " + err);
-        return res.redirect('back');
+        return res.redirect('/');
     }
 }
 // This is for deleting the habit 
@@ -143,10 +143,10 @@ module.exports.removeHabit = async (req, res) => {
             },
             userRef: userId
         });
-        return res.redirect('back');
+        return res.redirect('/');
     } catch (err) {
         // The controller will be in else block if some error is found.
         console.log("Error in deleting record(s)!", err);
-        return res.redirect('back');
+        return res.redirect('/');
     }
 }
