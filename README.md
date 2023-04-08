@@ -17,7 +17,8 @@ Node , Express, Mongodb , EJS , javaScript , html, css
 
 After reaching the project directory you have to run the following the command.
    ```` npm install 
-     npm start || nodemon index.js````
+        npm start || nodemon index.js
+   ````
 
 
 ### Features
