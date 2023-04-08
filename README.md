@@ -36,8 +36,8 @@ After reaching the project directory you have to run the following the command.
 
 ### Folder Structure
 
-`Habit Tracker
-    |
+`Habit Tracker <br>
+    |<br>
     |               |--->css
     |--->assets---->|--->images
     |               |---> js
