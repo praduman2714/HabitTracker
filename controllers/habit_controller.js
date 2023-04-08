@@ -17,14 +17,15 @@ function getTodayDate(){
 // Habit is exclusive of user.
 module.exports.createHabit = async function(req, res){
     // console.log(req.body);
-    req.flash('success' , 'New Habit Created');
+    
 
     try{
         let user = await User.findById(req.user._id).populate();
         let habit = await Habit.findOne({content : req.body.habit, userRef : req.user._id}).populate();
 
         if(habit){
-            console.log("Habit exist");
+            //console.log("Habit exist");
+            req.flash('error' , "Habit Exist");
             return res.redirect('back');
         }else{
             let habit = await Habit.create({
@@ -32,6 +33,7 @@ module.exports.createHabit = async function(req, res){
                 userRef : req.user._id,
                 dates : {date : await getTodayDate() , completed : "none"}
             });
+            req.flash('success' , 'New Habit Created');
             return res.redirect('back');
         }
 
