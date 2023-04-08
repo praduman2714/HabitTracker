@@ -4,7 +4,8 @@
   "description": "A fullstack app for tracking the habits",
   "main": "yes",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start" : "node index.js"
   },
   "author": "whiteWolf",
   "license": "ISC",
