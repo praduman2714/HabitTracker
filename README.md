@@ -21,6 +21,7 @@ After reaching the project directory you have to run the following the command.
 
 
 ### Features
+<hr>
 
   User view of homePage - signUp - SingIn
   
@@ -36,27 +37,43 @@ After reaching the project directory you have to run the following the command.
 
 ### Folder Structure
 
-  `Habit Tracker 
-        |                              |----> css 
-        |                              |
-        |--------------> assets -------|----> images
-        |                              |
-        |                              |----> js
-        |
-        |
-        |
-        |
-        |
-        |
-        |
-        |
-        |
-        |
-        |
-        |
-        |
-        |
-        |
-        |
-        |
+  `
+  
+Habit Tracker
+    |
+    |               |--->css
+    |--->assets---->|--->images
+    |               |---> js
+    |
+    |               |--->flashMiddleware.js
+    |--->config---->|--->mongoose.js
+    |               |--->passport-local-Stradegy.js
+    |
+    |                  |-->habbit_controller.js
+    |--->controllers-->|-->home_controller.js
+    |                  |-->user_controller.js
+    |
+    |               |-->habit.js
+    |--->models---->|
+    |               |-->user.js
+    |
+    |              
+    |               |-->habit.js
+    |--->routes---->|-->index.js
+    |               |-->user.js
+    |
+    |              |--->_header.ejs
+    |              |--->forget_password.ejs
+    |              |--->home.ejs
+    |--->views---->|--->layout.ejs
+    |              |--->sign_in.ejs
+    |              |--->sign_up.ejs
+    |
+    |-->node_modules
+    |-->.gitignore
+    |--> index.js
+    |--> package-lock.json
+    |-->package.json
+    |
+  
   `
