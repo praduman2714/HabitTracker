@@ -48,6 +48,7 @@ app.use(flashMiddleWare.setFlash);
 
 app.use('/' , require('./routes/index')); // middleware for router
 
+// directing the app in the given port
 app.listen(port, function(err){
     if(err){
         console.log(err );
