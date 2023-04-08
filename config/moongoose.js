@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const dbb = 'mongodb+srv://whiteWolf:praduman@cluster0.vji2hj2.mongodb.net/habitTracker?retryWrites=true&w=majority'
+const dbb = 'mongodb+srv://whiteWolff:praduman@cluster0.an8uy3k.mongodb.net/habittTracker?retryWrites=true&w=majority'
 mongoose.connect(dbb).then(()=>{
     console.log('connection successful');
 }).catch((err) => console.log("no connection " + err));
@@ -13,5 +13,5 @@ db.once('open',  function(){
      console.log('Connected to Database :: MongoDB');
 });
 
-
-module.exports = db; 
+ 
+module.exports = db;  
