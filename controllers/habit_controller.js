@@ -129,12 +129,14 @@ module.exports.toggleFavourite = async function(req, res){
         return res.redirect('back');
     }
 }
-
+// This is for deleting the habit 
 module.exports.removeHabit = async (req, res) => {
     try {
+        // the controller will come to try block, and execute
         req.flash('success', 'Deleted habit successfully!');
         const id = req.query.id;
         const userId = req.user._id;
+        // deleting the user, with the help of the id of habit, and user. 
         await Habit.deleteOne({
             _id: {
                 $in: [id]
@@ -143,6 +145,7 @@ module.exports.removeHabit = async (req, res) => {
         });
         return res.redirect('back');
     } catch (err) {
+        // The controller will be in else block if some error is found.
         console.log("Error in deleting record(s)!", err);
         return res.redirect('back');
     }
