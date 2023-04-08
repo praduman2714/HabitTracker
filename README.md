@@ -13,8 +13,50 @@ Node , Express, Mongodb , EJS , javaScript , html, css
 
   1. Clone this project
   2. Start by installing npm if you don't have it already.
-  3 .Navigate to Project Directory.
+  3. Navigate to Project Directory.
 
 After reaching the project directory you have to run the following the command.
-`npm install`
-` npm start || nodemon index.js`
+    ` npm install `
+    ` npm start || nodemon index.js`
+
+
+### Features
+
+  User view of homePage - signUp - SingIn
+  
+  # HomePage
+  ![HomeHabitTracker](https://user-images.githubusercontent.com/66240716/230736772-407ade3b-eeb0-4279-a856-ba7c499a15be.png)
+  
+  # Sign-Up
+  ![sign_upHabitTracker](https://user-images.githubusercontent.com/66240716/230736787-66ba8359-495a-4bb2-ada0-fb163c5ebe23.png)
+
+  # Sign-In
+  ![sign_inHabitTracker](https://user-images.githubusercontent.com/66240716/230736808-42c46603-ffc3-45a7-9165-7cbcd9632eae.png)
+
+
+### Folder Structure
+
+  `Habit Tracker 
+        |                              |----> css 
+        |                              |
+        |--------------> assets -------|----> images
+        |                              |
+        |                              |----> js
+        |
+        |
+        |
+        |
+        |
+        |
+        |
+        |
+        |
+        |
+        |
+        |
+        |
+        |
+        |
+        |
+        |
+  `
