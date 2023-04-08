@@ -16,8 +16,8 @@ Node , Express, Mongodb , EJS , javaScript , html, css
   3. Navigate to Project Directory.
 
 After reaching the project directory you have to run the following the command.
-    ` npm install `
-    ` npm start || nodemon index.js`
+   ```` npm install 
+     npm start || nodemon index.js````
 
 
 ### Features
@@ -36,8 +36,9 @@ After reaching the project directory you have to run the following the command.
 
 ### Folder Structure
 
-```Habit Tracker <br>
-    |<br>
+```
+Habit Tracker
+    |
     |               |--->css
     |--->assets---->|--->images
     |               |---> js
@@ -71,5 +72,6 @@ After reaching the project directory you have to run the following the command.
     |--> index.js
     |--> package-lock.json
     |-->package.json
-    |````
+    |
+    ````
     
