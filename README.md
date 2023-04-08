@@ -36,7 +36,7 @@ After reaching the project directory you have to run the following the command.
 
 ### Folder Structure
 
-`Habit Tracker <br>
+```Habit Tracker <br>
     |<br>
     |               |--->css
     |--->assets---->|--->images
@@ -71,5 +71,5 @@ After reaching the project directory you have to run the following the command.
     |--> index.js
     |--> package-lock.json
     |-->package.json
-    |`
+    |````
     
