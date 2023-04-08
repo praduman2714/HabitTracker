@@ -16,7 +16,7 @@ module.exports.signIn = function(req, res){
 // for creating the user , this fucntion is made
 module.exports.create = async function(req, res){
     // console.log("User created fucntion loaded");
-    console.log(req.body);
+    //console.log(req.body);
     
     if(req.body.password != req.body.confirmPassword){
         return res.redirect("back");
