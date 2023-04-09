@@ -1,5 +1,6 @@
 const Habit = require('../model/habit');
 
+// This function is for providing the 7days date, which will be displayed afte the habit is created.
 function getOneWeekDate(){
     let dates = [];
     for(let i = 0; i<7 ; i++){
@@ -15,7 +16,8 @@ function getOneWeekDate(){
     return dates
 }
 
-
+// This is what I had send to the home page, as variabe, habits are the list of habit, from the database,
+// weeklyDates are the list of 7 dates, from the the day of habit creation.
 module.exports.home = async function(req, res){
     //console.log(req.user);
     if(req.user){

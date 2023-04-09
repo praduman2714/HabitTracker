@@ -11,13 +11,14 @@
     <title><%= title%></title>
 </head>
 <body>
+    <!-- I have used layout methoda, in which header remains constant, and body of the page will be changed  -->
     <%- include('_header')%>
 
 
     <%-body%>
 
     <%- include('_footer')%>
-
+    <!-- It is for displying the messages, in the pages -->
     <script>
         <% if (flash.success && flash.success.length > 0) {%>
             new Noty({

@@ -25,7 +25,7 @@ module.exports.createHabit = async function(req, res){
 
         if(habit){
             //console.log("Habit exist");
-            req.flash('error' , "Habit Exist");
+            req.flash('error' , "Habit Exist!");
             return res.redirect('/');
         }else{
             let habit = await Habit.create({

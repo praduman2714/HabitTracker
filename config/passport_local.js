@@ -1,6 +1,6 @@
-const passport = require('passport');
-
-const LocalStrategy = require('passport-local').Strategy;
+const passport = require('passport'); // requiriing passport
+// this is the strategy I have used for authentication purpose.
+const LocalStrategy = require('passport-local').Strategy; // requiring LocalStrategy
 
 const User = require('../model/user');
 
@@ -42,7 +42,7 @@ passport.deserializeUser(async function(id, done){
     } 
     return done(null, userId);
 });
-
+// Checking authentication
 passport.checkAuthentication = function (req, res, next){
     // if user is signed in , then pass on the request ot the next fucntion (controller's action)
     if(req.isAuthenticated()){
@@ -51,7 +51,7 @@ passport.checkAuthentication = function (req, res, next){
     // if the user is not signed in
     return res.redirect('/users/sign-in');
 }
-
+// Setting authentication
 passport.setAuthenticatedUser = function(req, res, next){
     if(req.isAuthenticated()){
         // currenct user data is stored in the req, so we are just storing its data to res.

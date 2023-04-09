@@ -1,6 +1,6 @@
-const express = require('express');
-const router = express.Router();
-const habitController = require('../controllers/habit_controller');
+const express = require('express'); // requireing the express
+const router = express.Router(); // requiring Router
+const habitController = require('../controllers/habit_controller'); // requiring habit_Controller, for calling its function.
 
 
 router.post('/createHabit' , habitController.createHabit);

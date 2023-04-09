@@ -14,8 +14,9 @@ router.post('/create-session', passport.authenticate(
 ), userController.createSession); 
 // used for deleting the user
 router.get('/sign-out' , userController.destroySession);
-router.use('/habit' , require('./habit'));
+router.use('/habit' , require('./habit')); // it is for habits, Habit is also part of user
 
+// these are for forgetPassowrd. one router will redirect to forgetPassword Page, and other will change the password
 router.use('/forgetPassword' , userController.forgetPasswordPage);
 router.use('/forgetPasswordPage', userController.forgetPasswordLink);
 

@@ -9,14 +9,15 @@ module.exports.signUp = function(req, res){
 }
 // This fucntion is used to redirect the user to the signIn page.
 module.exports.signIn = function(req, res){
+    // req.flash('success' , 'Signed In !')
     return res.render('sign_In' , {
         title : "Sign-In"
     })
 }
 // for creating the user , this fucntion is made
+// I have used async await , In the doucumentation is is givin call Back function, but in the latest version
+// call back fucntion is not accepted.
 module.exports.create = async function(req, res){
-    // console.log("User created fucntion loaded");
-    //console.log(req.body);
     
     if(req.body.password != req.body.confirmPassword){
         return res.redirect("back");
@@ -54,13 +55,13 @@ module.exports.forgetPasswordPage = function(req, res){
         title : 'Forget Password'
     });
 }
-
+// this will update the existing password, with the newly created password.
 module.exports.forgetPasswordLink = async function(req, res){
     let user = await User.findOne({ email: req.body.email });
     //console.log(user);
     //console.log(req.body);
     if(!user){
-        return res.redirect('/users/sign-up');
+        return res.redirect('/users/signUp');
     }
     if(req.body.password == req.body.confirmPassword){
         user.password = req.body.password;

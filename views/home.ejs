@@ -1,20 +1,22 @@
 <script src="https://kit.fontawesome.com/6866a8ccc0.js" crossorigin="anonymous"></script>
-
+<!-- If you try to acces home page, then you can't acces, until you are logged in, I have 
+    checked the condiions for that. If you are logged In , then you can albe to see your activieted ,
+    have been doing . -->
 <% if(locals.user) {%>
     <body>
-    
+        <!-- Just a randome quotes -->
         <div class="qutos">
-            <h1>“Successful people have successful habits”</h1>
+            <h1>“Successful habit makes people Successful”</h1>
             <p>Start with a new habit today !</p>
         </div>
-        
+        <!-- For the input which allow the user to enter habits -->
         <div id="input">
             <form action="/users/habit/createHabit" method="POST" class="input-form">
                 <input name="habit" type="text" placeholder="Enter your habit..." required>
                 <button type="submit" id="form-btn">+ Add Habits</button>
             </form>
         </div>
-        
+        <!-- These will tell the user that , which symbol indicate what -->
         <div id="symbol">
             <i class="fas fa-check-circle"></i>
            -Done&emsp;&emsp;
@@ -26,7 +28,8 @@
            <button id="weekly-view__btn" onclick="showWeeklyData()">weekly</button>
         </div>
 
-
+        <!-- From here habit and its contains start, it basically fetches data form habit, which is passed 
+        in the home_controller. -->
          <div class="habit-display_width">
             <ul class="habit-list">
                 <li class="with-weekly">
@@ -51,7 +54,7 @@
                                             }
                                         });
                             %>
-                    
+                            <!-- For toggling the status of the habits -->
                             <a href="/users/habit/toggleStatus/?id=<%= habit._id%>&date=<%= today %>" class="status">
                                 <!-- <i class="fas fa-check-circle"></i> -->
 
@@ -64,9 +67,9 @@
                                     <% } %>
                                 
                             </a>
-    
+                            <!-- Habit content -->
                             <div class="habit-list-item-name"> <%=habit.content%> </div>
-    
+                            <!-- For toggling the habit to favourites -->
                             <div >
                                 <a href="/users/habit/favorite/?id=<%= habit._id%>" class="favorite">
                                     
@@ -77,6 +80,7 @@
                                     <%}%>      
                                     
                                 </a>
+                                <!-- For remving the habits -->
                                 <a href="/users/habit/remove/?id=<%= habit._id %>" class="remove">
                                     <i class="fa-solid fa-trash"></i>
                                 </a>
@@ -100,7 +104,7 @@
                                             }
                                         });
                                     %>
-
+                                        <!-- Provided the day wise method for checking of the habits  -->
                                     <a href="/users/habit/toggleStatus/?id=<%= habit._id%>&date=<%=d%>" class="status">
                                         <!-- <i class="fas fa-minus-circle"></i> -->
                                         <% if(find && stat==='yes'){ %>

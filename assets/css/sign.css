@@ -1,6 +1,9 @@
 body{
     background-image: url(../images/sign.jpg) ;
 }
+/* The concept for the desigin the sing-in/sign-up/forget_password page was of giveing the disply as flex */
+/* Then arranged it as accordingly. For achiving the purpose I have made one outerForm, and inside it one inner form 
+    This can be done in many ways, but at time of making, this is what it come to my mind.*/
 .outerform{
     display: flex;
     justify-content: center;
@@ -21,12 +24,14 @@ body{
     margin-top: -40%;
 
 }
+/* Styling for the div, inside the input_form */
 .input-form div {
     /* display: block; */
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
+/* Heading , which go as Welcome */
 .heading{
     margin-top: 30px;
 }
@@ -41,6 +46,8 @@ body{
 /* .input-form div:nth-child(2n){
     margin-left: 15vh;
 } */
+
+/* Some basic styling to the buttons, and input sections */
 .formClass input{
     width: 130%;
     height: 40%;
