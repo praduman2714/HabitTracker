@@ -37,7 +37,10 @@ After reaching the project directory you have to run the following the command.
 
   # Sign-In
   ![sign_inHabitTracker](https://user-images.githubusercontent.com/66240716/230736808-42c46603-ffc3-45a7-9165-7cbcd9632eae.png)
-
+  
+  # Daily View
+  ![dailyView](https://user-images.githubusercontent.com/66240716/230767839-14cbc028-ffe8-426a-b645-94b106ea83cc.png)
+  
 
 ### Folder Structure
 
